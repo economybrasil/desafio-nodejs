@@ -13,7 +13,7 @@ describe("Consultorios Routes", () => {
 	test("Deve solicitar todos os consultorios na rota de GET /", done => {
 		const values = [];
 
-		consultorioService.findAll.mockReturnValue(values);
+		consultorioService.findAll.mockReturnValue({ result: values });
 
 		request(app)
 			.get("/consultorios")
@@ -24,7 +24,7 @@ describe("Consultorios Routes", () => {
 	test("Deve solicitar um consultorio pelo id na rota de GET /:id", done => {
 		const value = { id: 1 };
 
-		consultorioService.find.mockReturnValue(value);
+		consultorioService.find.mockReturnValue({ result: value });
 
 		request(app)
 			.get("/consultorios/1")
@@ -39,7 +39,7 @@ describe("Consultorios Routes", () => {
 	test("Deve solicitar a inserção de um consultório pela rota de PUT /", done => {
 		const value = { id: 1, nome: "foo" };
 
-		consultorioService.create.mockReturnValue(value);
+		consultorioService.create.mockReturnValue({ result: value });
 
 		request(app)
 			.put("/consultorios")
@@ -55,7 +55,7 @@ describe("Consultorios Routes", () => {
 	test("Deve solicitar a alteraçnao de um consultório pela rota de POST /:id", done => {
 		const value = { id: 1, nome: "foo" };
 
-		consultorioService.update.mockReturnValue(value);
+		consultorioService.update.mockReturnValue({ result: value });
 
 		request(app)
 			.post("/consultorios/1")

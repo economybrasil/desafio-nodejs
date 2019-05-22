@@ -8,6 +8,17 @@ const medicoModule = require("./modules/medicos");
 const app = express();
 
 app.use(bodyParser.json());
+app.use(function(req, res, next) {
+	res.jsonOrError = function(result, error) {
+		if (error) {
+			res.status(400);
+			res.json(error);
+			return;
+		}
+		res.json(result);
+	};
+	next();
+});
 
 app.get("/health", (_, res) => res.send("ok!"));
 

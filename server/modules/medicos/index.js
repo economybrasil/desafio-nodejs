@@ -3,24 +3,24 @@ const service = require("./medico.service");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-	const models = await service.findAll();
-	res.json(models);
+	const { result, error } = await service.findAll();
+	res.jsonOrError(result, error);
 });
 
 router.get("/:id", async (req, res) => {
-	const model = await service.find(req.params.id);
-	res.json(model);
+	const { result, error } = await service.find(req.params.id);
+	res.jsonOrError(result, error);
 });
 
 router.put("/", async (req, res) => {
 	const newMedico = req.body;
-	const model = await service.create(newMedico);
-	res.json(model);
+	const { result, error } = await service.create(newMedico);
+	res.jsonOrError(result, error);
 });
 
 router.post("/:id", async (req, res) => {
 	const updatedMedico = req.body;
-	const model = await service.update(updatedMedico);
-	res.json(model);
+	const { result, error } = await service.update(updatedMedico);
+	res.jsonOrError(result, error);
 });
 module.exports = router;

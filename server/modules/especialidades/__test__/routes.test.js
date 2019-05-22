@@ -13,7 +13,7 @@ describe("Especialidades Routes", () => {
 	test("Deve solicitar todos os especialidades na rota de GET /", done => {
 		const values = [];
 
-		especialidadeService.findAll.mockReturnValue(values);
+		especialidadeService.findAll.mockReturnValue({ result: values });
 
 		request(app)
 			.get("/especialidades")
@@ -24,7 +24,7 @@ describe("Especialidades Routes", () => {
 	test("Deve solicitar um especialidade pelo id na rota de GET /:id", done => {
 		const value = { id: 1 };
 
-		especialidadeService.find.mockReturnValue(value);
+		especialidadeService.find.mockReturnValue({ result: value });
 
 		request(app)
 			.get("/especialidades/1")
@@ -39,7 +39,7 @@ describe("Especialidades Routes", () => {
 	test("Deve solicitar a inserção de um consultório pela rota de PUT /", done => {
 		const value = { id: 1, nome: "foo" };
 
-		especialidadeService.create.mockReturnValue(value);
+		especialidadeService.create.mockReturnValue({ result: value });
 
 		request(app)
 			.put("/especialidades")
@@ -55,7 +55,7 @@ describe("Especialidades Routes", () => {
 	test("Deve solicitar a alteraçnao de um consultório pela rota de POST /:id", done => {
 		const value = { id: 1, nome: "foo" };
 
-		especialidadeService.update.mockReturnValue(value);
+		especialidadeService.update.mockReturnValue({ result: value });
 
 		request(app)
 			.post("/especialidades/1")

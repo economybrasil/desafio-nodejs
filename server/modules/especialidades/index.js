@@ -3,24 +3,24 @@ const service = require("./especialidade.service");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-	const models = await service.findAll();
-	res.json(models);
+	const { result, error } = await service.findAll();
+	res.jsonOrError(result, error);
 });
 
 router.get("/:id", async (req, res) => {
-	const model = await service.find(req.params.id);
-	res.json(model);
+	const { result, error } = await service.find(req.params.id);
+	res.jsonOrError(result, error);
 });
 
 router.put("/", async (req, res) => {
 	const newEspecialidade = req.body;
-	const model = await service.create(newEspecialidade);
-	res.json(model);
+	const { result, error } = await service.create(newEspecialidade);
+	res.jsonOrError(result, error);
 });
 
 router.post("/:id", async (req, res) => {
 	const updatedEspecialidade = req.body;
-	const model = await service.update(updatedEspecialidade);
-	res.json(model);
+	const { result, error } = await service.update(updatedEspecialidade);
+	res.jsonOrError(result, error);
 });
 module.exports = router;
