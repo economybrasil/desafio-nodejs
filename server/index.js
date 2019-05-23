@@ -1,29 +1,10 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+const db = require("./src/db");
+const app = require("./src");
 
-const consultorioModule = require("./modules/consultorios");
-const especialidadeModule = require("./modules/especialidades");
-const medicoModule = require("./modules/medicos");
+async function start() {
+	await db;
 
-const app = express();
+	app.listen(4000, () => console.log("Api on http://localhost:4000"));
+}
 
-app.use(bodyParser.json());
-app.use(function(req, res, next) {
-	res.jsonOrError = function(result, error) {
-		if (error) {
-			res.status(400);
-			res.json(error);
-			return;
-		}
-		res.json(result);
-	};
-	next();
-});
-
-app.get("/health", (_, res) => res.send("ok!"));
-
-app.use("/consultorios", consultorioModule);
-app.use("/especialidades", especialidadeModule);
-app.use("/medicos", medicoModule);
-
-module.exports = app;
+start();

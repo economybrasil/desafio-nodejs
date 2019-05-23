@@ -1,0 +1,31 @@
+{
+	"name": "desafio-nodejs",
+	"version": "1.0.0",
+	"description": "# consultórios médicos",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"start": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/economybrasil/desafio-nodejs.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/economybrasil/desafio-nodejs/issues"
+	},
+	"homepage": "https://github.com/economybrasil/desafio-nodejs#readme",
+	"devDependencies": {
+		"jest": "^24.8.0",
+		"supertest": "^4.0.2"
+	},
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"cors": "^2.8.5",
+		"express": "^4.17.0",
+		"mongoose": "^5.5.10"
+	}
+}
