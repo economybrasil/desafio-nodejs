@@ -7,6 +7,7 @@ import Consultorios from "./modules/Consultorios";
 import Consultorio from "./modules/Consultorio";
 import Medicos from "./modules/Medicos";
 import Medico from "./modules/Medico";
+import Especialidade from "./modules/Especialidade";
 import Especialidades from "./modules/Especialidades";
 
 function App() {
@@ -21,7 +22,9 @@ function App() {
 					<Route component={Medicos} exact path="/medicos" />
 					<Route component={Medico} exact path="/medicos/novo" />
 					<Route component={Medico} exact path="/medicos/:id" />
-					<Route component={Especialidades} exact path="/especialistas" />
+					<Route component={Especialidades} exact path="/especialidades" />
+					<Route component={Especialidade} exact path="/especialidades/novo" />
+					<Route component={Especialidade} exact path="/especialidades/:id" />
 				</Switch>
 			</Layout>
 		</BrowserRouter>

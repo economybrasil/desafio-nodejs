@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -40,6 +41,10 @@ function Consultorios({ classes, history }) {
 
 	return (
 		<>
+			{" "}
+			<div style={{ paddingBottom: 16 }}>
+				<Typography variant="display1"> Consultórios </Typography>
+			</div>
 			{loading ? <LinearProgress /> : null}
 			<Button
 				variant="contained"

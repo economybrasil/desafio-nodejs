@@ -43,6 +43,7 @@ async function update(id, model) {
 
 		return { result: doc };
 	} catch (e) {
+		console.log(e);
 		return { error: { exception: e } };
 	}
 }

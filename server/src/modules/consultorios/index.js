@@ -23,7 +23,7 @@ router.put("/", async (req, res) => {
 	res.jsonOrError(result, error);
 });
 
-router.put("/:id/consultorios", async (req, res) => {
+router.put("/:id/medicos", async (req, res) => {
 	const medicoId = req.body.id;
 	const { result, error } = await service.addMedico(req.params.id, medicoId);
 	res.jsonOrError(result, error);

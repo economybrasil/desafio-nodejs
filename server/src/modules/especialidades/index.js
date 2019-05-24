@@ -20,7 +20,7 @@ router.put("/", async (req, res) => {
 
 router.post("/:id", async (req, res) => {
 	const updatedEspecialidade = req.body;
-	const { result, error } = await service.update(updatedEspecialidade);
+	const { result, error } = await service.update(req.params.id, updatedEspecialidade);
 	res.jsonOrError(result, error);
 });
 

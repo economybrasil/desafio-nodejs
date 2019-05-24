@@ -56,13 +56,13 @@ async function create(model) {
 
 async function addMedico(id, medicoId) {
 	try {
-		const medico = await MedicoModel.findById(id).exec();
+		const medico = await MedicoModel.findById(medicoId).exec();
 
 		if (!medico) {
 			return { error: "Médico não encontrado" };
 		}
 
-		const consultorio = await ConsultorioModel.findById(consultorioId).exec();
+		const consultorio = await ConsultorioModel.findById(id).exec();
 
 		if (!consultorio) {
 			return { error: "Consultorio não encontrado" };
@@ -76,7 +76,7 @@ async function addMedico(id, medicoId) {
 			return { error: "O médico não é compativel com especialidades do consultorio" };
 		}
 
-		const doc = await MedicoModel.updateOne({ _id: id }, { $push: { consultorios: consultorioId } }).exec();
+		const doc = await MedicoModel.updateOne({ _id: medicoId }, { $push: { consultorios: id } }).exec();
 
 		return { result: doc };
 	} catch (e) {
